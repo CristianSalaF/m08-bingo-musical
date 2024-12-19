@@ -3,8 +3,8 @@ import kotlin.random.Random
 
 
 fun main(){
-    val columnes: Int = 5;
-    val rows: Int = 3;
+    val columnes = 5
+    val rows = 3
 
     var carton = Array(columnes) { Array<Int>(rows) { 0 } }
     val usedNums = mutableListOf(0)
