@@ -3,49 +3,34 @@ import kotlin.random.Random
 
 
 fun main(){
-    val Columns: Int = 9;
+    val Columns: Int = 5;
     val Rows: Int = 3;
 
     var Carton = Array(Columns) { Array<Int>(Rows) { 0 } }
-    var CorrectFormat: Boolean = false
-    while (!CorrectFormat) {
-        Carton = NewCard(Carton)
-        CorrectFormat = FormatVoids(Carton)
-        println(CorrectFormat)
-    }
+    val UsedNums = mutableListOf(0)
 
-    var num :Int = 0;
-    //Carton = NewCard(Carton)
-    for (i in 0..Carton.lastIndex){
-        for(element in Carton[i]){
-
-            print(element)
+    var newnum:Int = 0;
+    for (i in 0..Rows-1){
+        for (j in 0..Columns-1){
+            while(UsedNums.contains(newnum)){
+                newnum = Random.nextInt(0, 100)
+            }
+            Carton[j][i]= newnum
+            UsedNums.add(newnum)
         }
-        println("")
     }
+    var ToCsv: String ="";
+    for (i in 0..Rows-1){
+        for (j in 0..Columns-1){
 
-}
-fun FormatVoids( Carton:  Array<Array<Int>>): Boolean{
-    var count: Int = 0;
-    count = 0;
-    for (i in 0..3){
-        for (j in 0..Carton.lastIndex){
-            if(Carton[j][i] == 9){
-                count = count + 1
+            ToCsv = ToCsv + Carton[j][i].toString()
+            if(j != Columns-1){
+                ToCsv = ToCsv + ","
             }
         }
-        println("count per line ------------->" + count)
-        if (count > 4){
-            return false;
-        }
+        ToCsv= ToCsv + "\n"
+    }
+    println(ToCsv)
 
-        count = 0;
-    }
-    return true
 }
-fun NewCard(Carton:  Array<Array<Int>>):  Array<Array<Int>>{
-    for (i in 0..Carton.lastIndex) {
-        Carton[i][Random.nextInt(0, 3)] = 9;
-    }
-    return Carton
-}
+
