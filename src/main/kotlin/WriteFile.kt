@@ -20,5 +20,6 @@ fun main() {
         Carto(fila1, fila2, fila3)
     )
     FileOutputStream("filename.csv").apply { writeCsv(cartons) }
+    readCsv()
 }
 
