@@ -31,7 +31,7 @@ fun main() {
     )
 
     //Escriure els cartrons en un arxiu (no és format csv)
-    FileOutputStream("filename.csv").apply { writeCsv(cartons) }
+    FileOutputStream("data/csv/filename.csv").apply { writeCsv(cartons) }
 
     //Llegir l'arxiu i escriure per pantalla per provar
     //readCsv()
