@@ -1,5 +1,7 @@
+package com.itb.damv1.bingomus.program
+
+import com.itb.damv1.bingomus.model.Carto
 import java.io.FileOutputStream
-import java.io.OutputStream
 
 /*
 Això és una extensió de funció.
@@ -40,7 +42,7 @@ fun main() {
     )
 
     //Escriure els cartrons en un arxiu (no és format csv)
-        FileOutputStream("data/csv/filename.csv").writeCsv(cartons)
+    FileOutputStream("data/csv/filename.csv").writeCsv(cartons)
 
     //Llegir l'arxiu i escriure per pantalla per provar
     //readCsv()

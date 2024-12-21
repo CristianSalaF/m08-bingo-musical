@@ -1,3 +1,5 @@
+package com.itb.damv1.bingomus.program
+
 import kotlin.random.Random
 //package com.bingo
 

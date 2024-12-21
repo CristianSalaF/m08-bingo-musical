@@ -1,3 +1,5 @@
+package com.itb.damv1.bingomus.program
+
 import java.io.File
 
 //Funció per a llegir les dades d'un arxiu
