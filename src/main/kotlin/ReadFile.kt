@@ -1,4 +1,5 @@
 import java.io.File
+
 fun readCsv() {
     try {
         val fileName = "bingo_musical.csv"
