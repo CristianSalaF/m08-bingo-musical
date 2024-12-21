@@ -1,7 +1,16 @@
 import java.io.FileOutputStream
 import java.io.OutputStream
 
-fun OutputStream.writeCsv(cartons: List<Carto>) {
+/*
+Això és una extensió de funció.
+En aquest cas ens facilita que no hem de crear un objecte bufferedWriter, ja que la propia classe
+OutputStream té un mètode per a obtenir un bufferedWriter.  A més, com el cridem dintre d'un mètode,
+no hem de posar el nom de l'objecte.
+La he convertit en FileOutputStream per no haver de fer servir el mètode apply.
+El mètode apply (de la classe any) que es feia servir en en la crida, es feia servir per qué des
+d'una classe filla no es pot accedir directament als mètodes de la super classe.
+ */
+fun FileOutputStream.writeCsv(cartons: List<Carto>) {
 
     //Obrir escriptor
     val writer = bufferedWriter()
@@ -31,7 +40,7 @@ fun main() {
     )
 
     //Escriure els cartrons en un arxiu (no és format csv)
-    FileOutputStream("data/csv/filename.csv").apply { writeCsv(cartons) }
+        FileOutputStream("data/csv/filename.csv").writeCsv(cartons)
 
     //Llegir l'arxiu i escriure per pantalla per provar
     //readCsv()
